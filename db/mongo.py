@@ -10,4 +10,7 @@ MONGO_DB_NAME = os.getenv('MONGO_DB_NAME')
 
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URL)
-db = client['MONGO_DB_NAME']
+db = client(MONGO_DB_NAME)
+
+
+book_collection=db['books']
