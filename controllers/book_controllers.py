@@ -27,4 +27,16 @@ async def create_book(book:BookCreate):
     except Exception as e:
         raise HTTPException(status_code=500,detail=f'Error:{str(e)}')
     
+
+async  def get_book_list():
+    try:
+        books = []
+        result = book_collection.find({})
+        async for item in result:
+            books.append(book_helper(item))
+        return books
+    except Exception as e:
+        raise HTTPException(status_code=500,detail=f'Error:{str(e)}')
+    
+    
         
