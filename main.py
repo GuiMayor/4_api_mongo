@@ -4,4 +4,4 @@ from routes import book_routes
 app =FastAPI()
 
 
-app.include_router
+app.include_router(book_routes.router, prefix="/books", tags=['Books'])
